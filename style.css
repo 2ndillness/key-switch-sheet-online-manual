@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+/* ==========================================================================
+1. Base Styles (基本設定)
+========================================================================== */
 html {
   scroll-behavior: smooth;
 }
@@ -17,12 +20,6 @@ body {
   min-height: 100vh;
   color: #333;
   line-height: 1.8;
-}
-
-header {
-  background: #2c3e50;
-  color: #fff;
-  padding: 1rem 2rem;
 }
 
 h1 {
@@ -46,16 +43,58 @@ h3 {
   scroll-margin-top: 1rem;
 }
 
-.container {
-  display: flex;
-  flex: 1;
+p, ul, ol, dl {
+  margin-bottom: 1.2rem;
+  margin-top: 0;
 }
+
+li {
+  margin-bottom: 0.8rem;
+}
+
 code {
   font-size: 0.925rem;
   padding: 0.2em 0.4em;
   background-color: #e2e2e2;
 }
 
+/* ==========================================================================
+2. Layout (レイアウト)
+========================================================================== */
+header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 4rem;
+  max-width: 800px;
+}
+
+section {
+  margin-bottom: 2rem;
+  scroll-margin-top: 1rem;
+}
+
+footer {
+  background: #f1f1f1;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+3. Navigation (ナビゲーション)
+========================================================================== */
 nav {
   width: 250px;
   background: #f8f9fa;
@@ -103,53 +142,10 @@ nav ul ul a {
   color: #666;
 }
 
-main {
-  flex: 1;
-  padding: 2rem 4rem;
-  max-width: 800px;
-}
-
-section {
-  margin-bottom: 2rem;
-  scroll-margin-top: 1rem;
-}
-
-p, ul, ol, dl {
-  margin-bottom: 1.2rem;
-  margin-top: 0;
-}
-
-li {
-  margin-bottom: 0.8rem;
-}
-
-footer {
-  background: #f1f1f1;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: auto;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  nav {
-    width: auto;
-    border-right: none;
-    border-bottom: 1px solid #dee2e6;
-    height: auto;
-    position: static;
-  }
-
-  main {
-    padding: 1rem;
-  }
-}
-
+/* ==========================================================================
+4. Components (コンポーネント)
+========================================================================== */
+/* --- Alerts & Quotes --- */
 .image-placeholder {
   background: #eee;
   border: 2px dashed #ccc;
@@ -158,25 +154,6 @@ footer {
   text-align: center;
   margin: 0.5rem 0 1rem 0;
   font-size: 0.9rem;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.indent {
-  margin-left: 2rem;
-}
-
-.right {
-  display: block;
-  text-align: right;
 }
 
 .alert {
@@ -198,12 +175,123 @@ img {
   border-left: 5px solid #d0d7de;
 }
 
+/* --- Images & Modal --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 画像拡大モーダル用スタイル */
+.zoomable {
+  max-width: 100%; /* 親要素の幅いっぱいまで許容 */
+  cursor: zoom-in;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.zoomable:hover { opacity: 0.7; }
+
+/* 縦長画像のトリミング用ラッパー */
+.tall-crop {
+  position: relative;     /* アイコンの位置基準にする */
+  max-height: 300px;      /* 高さを300pxに制限 */
+  overflow: hidden;       /* はみ出た部分を隠す */
+  width: fit-content;     /* 中身（画像）の幅に合わせる */
+  margin: 1rem auto;      /* 中央揃え */
+  border: 1px solid #ddd; /* 枠線はラッパーにつける */
+  border-radius: 4px;
+}
+.tall-crop img {
+  margin: 0;              /* ラッパー内で余白をリセット */
+  border: none;           /* 画像自体の枠線を消す */
+  border-radius: 0;
+}
+
+/* ズーム可能を示すアイコンとラッパー */
+.zoom-container {
+  position: relative;
+  width: fit-content;
+  margin: 1rem auto;
+  display: block;
+}
+.zoom-container img {
+  margin: 0;
+}
+
+.zoom-container::after,
+.tall-crop::after {
+  content: "🔍";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  backdrop-filter: blur(2px);
+}
+
+.zoom-container:hover::after,
+.tall-crop:hover::after {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* モーダル背景 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+/* モーダル内画像 */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: auto;
+  max-width: 90%;
+  max-height: 90vh;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+.close {
+  position: absolute; top: 15px; right: 35px;
+  color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer;
+}
+
+/* --- Buttons --- */
+/* 共通ボタン設定 */
+#back-to-top,.gem-btn {
+  background: #2c3e50;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+#back-to-top:hover,
+.gem-btn:hover {
+  background: #007bff;
+}
+
 #back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #2c3e50;
-  color: #fff;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -212,10 +300,12 @@ img {
   font-size: 1.5rem;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, background 0.3s;
   pointer-events: none;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  padding: 0;
 }
 
 #back-to-top.visible {
@@ -223,23 +313,12 @@ img {
   pointer-events: auto;
 }
 
-#back-to-top:hover {
-  background: #007bff;
-}
-
 .gem-btn {
-  background: #2c3e50;
-  color: white;
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 4px;
   font-size: 0.9rem;
   display: inline-block;
-  transition: background 0.3s;
-}
-
-.gem-btn:hover {
-  background: #007bff;
 }
 
 .gem-note {
@@ -247,4 +326,46 @@ img {
   margin-top: 0.5rem;
   color: #666;
   font-size: 0.8rem;
+}
+
+/* --- Changelog --- */
+#changelog-list dt {
+  font-weight: bold;
+  margin-top: 1.5rem;
+  padding-left: 0.5rem;
+  border-left: 4px solid #2c3e50;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+5. Utilities (ユーティリティ)
+========================================================================== */
+.indent {
+  margin-left: 2rem;
+}
+
+.right {
+  display: block;
+  text-align: right;
+}
+
+/* ==========================================================================
+6. Responsive (レスポンシブ)
+========================================================================== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  nav {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    height: auto;
+    position: static;
+  }
+
+  main {
+    padding: 1rem;
+  }
 }
