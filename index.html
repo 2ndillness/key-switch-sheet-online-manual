@@ -15,6 +15,7 @@
   </header>
 
   <div class="container">
+    <!-- #region Navigation -->
     <nav><!-- ************************************************************************************************  -->
       <ul>
         <li><a href="#introduction">Key Switch Sheet とは</a></li>
@@ -47,8 +48,10 @@
         <li><a href="#legal">免責事項・ライセンス</a></li>
       </ul>
     </nav>
+    <!-- #endregion -->
 
     <main>
+      <!-- #region Introduction -->
       <section id="introduction"><!-- ************************************************************************  -->
         <h2>Key Switch Sheet とは</h2>
         <p>
@@ -74,54 +77,65 @@
           </li>
         </ul>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Setup -->
       <section id="setup"><!-- *******************************************************************************  -->
         <h2>導入方法</h2>
-        <ol>
-          <li>
-            配布リンクをクリックすると「ドキュメントのコピー」画面が表示されます。
-            「コピーを作成」ボタンをクリックして、自分のGoogleドライブに保存してください。
-          </li>
-          <li>
-            <strong>初回実行時の承認手順:</strong><br>
-            スクリプトを初めて実行する際、Googleによる承認画面が表示されます。<br>
-            以下の手順で許可を行ってください。
-            <ul>
+        <div class="accordion">
+          <strong class="accordion-header">
+            導入手順 ( <span class="skyblue">クリックして開閉</span> )
+          </strong>
+          <div class="accordion-content">
+            <ol>
               <li>
-                「承認が必要です」というダイアログで「続行」をクリックします。
-                <div class="image-placeholder">[画像: 承認が必要ですダイアログ]</div>
+                配布リンクをクリックすると「ドキュメントのコピー」画面が表示されます。
+                「コピーを作成」ボタンをクリックして、自分のGoogleドライブに保存してください。
               </li>
               <li>
-                アカウントの選択画面で、使用するGoogleアカウントを選択します。
-                <div class="image-placeholder">
-                  [画像: アカウント選択画面]
-                </div>
+                <strong>初回実行時の承認手順:</strong><br>
+                スクリプトを初めて実行する際、Googleによる承認画面が表示されます。<br>
+                以下の手順で許可を行ってください。
+                <ul>
+                  <li>
+                    「承認が必要です」というダイアログで「続行」をクリックします。
+                    <div class="image-placeholder">[画像: 承認が必要ですダイアログ]</div>
+                  </li>
+                  <li>
+                    アカウントの選択画面で、使用するGoogleアカウントを選択します。
+                    <div class="image-placeholder">
+                      [画像: アカウント選択画面]
+                    </div>
+                  </li>
+                  <li>
+                    「このアプリはGoogleで確認されていません」という警告が表示されます。<br>
+                    左下の「詳細」をクリックし、下部に表示される
+                    「Key Switch Sheet（安全ではないページ）に移動」をクリックしてください。
+                    <div class="image-placeholder">
+                      [画像: 警告画面と詳細リンク]
+                    </div>
+                  </li>
+                  <li>
+                    アクセス権限の確認画面が表示されます。もし権限の選択（チェックボックス）が表示された場合は、
+                    <strong>すべての項目にチェックを入れて</strong>から「許可」をクリックしてください。
+                    <div class="image-placeholder">
+                      [画像: 権限確認画面（すべてチェック）]
+                    </div>
+                  </li>
+                </ul>
+                <p class="indent note"><small>
+                  ※ この警告は、Googleによる検証を受けていない個人作成のスクリプトで表示される
+                  標準的なものです。<br>この認証作業は初回のみ必要です。
+                  一度すべての権限を許可すれば、次回以降は毎回認証する必要はありません。
+                </small></p>
               </li>
-              <li>
-                「このアプリはGoogleで確認されていません」という警告が表示されます。<br>
-                左下の「詳細」をクリックし、下部に表示される
-                「Key Switch Sheet（安全ではないページ）に移動」をクリックしてください。
-                <div class="image-placeholder">
-                  [画像: 警告画面と詳細リンク]
-                </div>
-              </li>
-              <li>
-                アクセス権限の確認画面が表示されます。もし権限の選択（チェックボックス）が表示された場合は、
-                <strong>すべての項目にチェックを入れて</strong>から「許可」をクリックしてください。
-                <div class="image-placeholder">
-                  [画像: 権限確認画面（すべてチェック）]
-                </div>
-              </li>
-            </ul>
-            <p class="indent note"><small>
-              ※ この警告は、Googleによる検証を受けていない個人作成のスクリプトで表示される
-              標準的なものです。<br>この認証作業は初回のみ必要です。
-              一度すべての権限を許可すれば、次回以降は毎回認証する必要はありません。
-            </small></p>
-          </li>
-        </ol>
+            </ol>
+          </div>
+        </div><hr>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Sheets -->
       <section id="sheets"><!-- ******************************************************************************  -->
         <h2>シートの構成</h2>
         <p>
@@ -146,7 +160,7 @@
           <li>
             <strong>MIDI Note:</strong><br><!--------------------------------------------------------------------->
             MIDIノート名を「音名 + 変化記号 + オクターブ数値」の形式で入力します。
-            （例: <code>C#-1</code>, <code>F8</code>等）<br>
+            （例: <code>C#-1</code>, <code>F8</code>など）<br>
             <img src="img/スクリーンショット 2026-01-02 210842.png" alt="">
             <div class="quote-style">
               💡 入力確定時に自動判定が行われます。それに応じて文字色が変化します。
@@ -164,7 +178,7 @@
                 </li>
               </ul>
             </div>
-            <a href="#tips" class="right">※ Middle C とは</a>
+            <a href="#middle-C" class="right">※ Middle C とは</a>
           </li>
           <li>
             <strong>Group Name:</strong><br><!-------------------------------------------------------------------->
@@ -221,7 +235,7 @@
             <strong>Middle C:</strong><br>
             音源側の<sup>※</sup><code>Middle C</code>の設定に合わせます。
             <code>3, 4, 5</code>の値からプルダウンで選択します。
-            <a href="#tips" class="right">※ Middle C とは</a>
+            <a href="#middle-C" class="right">※ Middle C とは</a>
           </li>
         </ul>
         <h4 id="mapping-viewer">Mapping Viewer:</h4><!------------------------------------------------------------>
@@ -244,7 +258,9 @@
           </li>
         </ul>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Menus -->
       <section id="menus"><!--  ******************************************************************************  -->
         <h2>メニュー機能</h2>
         <p>スプレッドシート上部のメニューから実行できる機能の詳細です。</p>
@@ -390,7 +406,7 @@
                 <p class="alert note">
                   ※選択開始セルから上に向かって選択していても基準セルは選択開始セルとなります。<br>
                   よって、基準セルがヘッダ行だった場合、基準セルに有効なMIDIノートが入力されていなかった
-                  場合等はエラーとなり処理が実行されません。
+                  場合などはエラーとなり処理が実行されません。
                 </p>
               </li>
             </ul>
@@ -430,7 +446,7 @@
               </li>
               <li>
                 <strong>📺 YouTube 解説動画:</strong><br>
-                詳しい使い方等はこちらで解説しています。
+                詳しい使い方などはこちらで解説しています。
               </li>
               <li>
                 <strong>💎 キースイッチ抽出 Gem</strong><br>
@@ -452,7 +468,9 @@
           </li>
         </ul>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Sidebar -->
       <section id="sidebar"><!--  ****************************************************************************  -->
         <h2>サイドバー機能</h2>
         <p>メニューの「🛠️ Appツール」&gt;「🎚️　サイドバーを開く」から
@@ -513,7 +531,9 @@
           </li>
         </ul>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Gemini Gem -->
       <section id="gemini-gem"><!--  *************************************************************************  -->
         <h2>キースイッチ抽出 Gem</h2>
         <p>
@@ -526,7 +546,7 @@
         <ol>
           <li>
             <strong>抽出機能:</strong><br>
-            音源のマニュアル等からテキスト、PDF、スクリーンショット等をアップロードします。<br>
+            音源のマニュアルなどからテキスト、PDF、スクリーンショットなどをアップロードします。<br>
             <strong>アーティキュレーション名</strong>と<strong>MIDIノート名</strong>が抽出されます。<br>
             過不足や誤りが無いかを確認してください。
           </li>
@@ -537,7 +557,9 @@
           <li>
             <strong>データ出力:</strong><br>
             抽出したデータは、<code>Main</code>シートへの貼り付けに適したヘッダ行無しの表形式で表示されます。<br>
-            そのままコピーして貼り付けるか<code>TSV</code>や<code>CSV</code>などの形式にすることもできます。
+            そのまま表の右下にある<sup>※</sup>「表をコピー」ボタンを押してコピーするか
+            <code>TSV</code>や<code>CSV</code>などの形式にすることもできます。
+            <small>(※Googleスプレッドシートにエクスポートのボタンではありません)</small>
           </li>
         </ol>
         <div class="alert">
@@ -554,10 +576,86 @@
           </a>
         </div>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Tips -->
       <section id="tips"><!--  *******************************************************************************  -->
         <h2>Tips</h2>
-        <div class="quote-style">
+        <div class="accordion">
+          <strong class="accordion-header">
+            作業フロー ( <span class="skyblue">クリックして開閉</span> )
+          </strong>
+          <div class="accordion-content">
+            手順通りにやる必要はありませんが、基本的な作業フローは以下のようになっています。
+            <ol>
+              <li>
+                <strong>準備 :</strong><br>
+                  <code>Main</code>シート<code>Articuration Name</code>列、<code>MIDI Note</code>列
+                  への入力は手動入力でも構いませんが、<br>
+                  <sup>※</sup><a href="#gemini-gem">キースイッチ抽出 Gem</a>を使うと効率的です。<br>
+              </li>
+              <li>
+                <strong>アーティキュレーション名とMIDIノート名の入力:</strong><br>
+                <code>Main</code>シートの<code>Articuration Name</code>列、<code>MIDI Note</code>列
+                にキースイッチ情報を入力します。<br>
+                <code>Gemini</code>でコピーしたデータを貼り付ける場合は入力開始セル( 通常はA2セル )
+                に貼り付けるだけで自動的にセルに分割されてデータが挿入されます。<br>
+                <div class="quote-style">
+                  <div class="alert-float-image">
+                    <img
+                      src="img/スクリーンショット 2026-01-03 163753.png"
+                      alt="" class="zoomable"
+                      width="200"
+                    >
+                  </div>
+                  <p class="note">
+                    💡表のコピーからの貼り付けでは無く<code>CSV</code>データなどを貼り付けた場合には
+                    自動的にセルに分割されない場合があります。<br>
+                    その場合は貼り付けを行った際に出現するアイコンのプルダウンメニューから「テキストを列に分割」
+                    を選択するとうまくいく場合があります。
+                  </p>
+                  <div class="clear"></div>
+                </div>
+                <code>MIDI Note</code>列にエラー判定が出た場合には修正します。<br>
+                範囲外判定の場合には<code>Settings</code>シートの<code>Middle C</code>の設定を見直してください。<br>
+                <code>Middle C</code>はデフォルトでは<code>4</code>に設定されています。
+              </li>
+              <li>
+                <strong>グループ設定:</strong><br>
+                <code>Groups</code>シートの<code>Group List</code>列にグループを追加して行きます。<br>
+                その後<code>Main</code>シートの<code>Group Name</code>列でプルダウン選択して設定します。<br>
+                グループ分けの必要が無い場合や<code>Studio One</code>形式でエクスポートする場合は
+                スキップしても特に問題はありません。
+              </li>
+              <li>
+                <strong>カラー設定:</strong><br>
+                サイドバーなどを利用してカラーコードを入力します。<br>
+                こちらも必要が無ければスキップしても特に問題はありません。
+              </li>
+              <li>
+                <strong>マップ名設定:</strong><br>
+                任意の名前を設定します。デフォルトでは<code>MyMap</code>となっていますが、
+                識別するためにも分かり易い名前を設定する事をお勧めします。
+              </li>
+              <li>
+                <strong>プロジェクトを保存:</strong><br>
+                必須ではありませんが、編集中の作業を再開したりエクスポートした後で変更したい時などに
+                便利なので保存しておく事をお勧めします。
+              </li>
+              <li>
+                <strong>エクスポート:</strong><br>
+                形式を選択してエクスポートしてください。<br>
+                <code>MIDI Note</code>にエラーが無ければエクスポートできます。
+                必要があれば<sup>※</sup><a href="#octave-offset">オクターブオフセット</a>を設定してください。
+              </li>
+              <li>
+                <strong>DAWにインポート:</strong><br>
+                お使いの<code>DAW</code>が指定するディレクトリに保存するなどしてインポートしてください。
+              </li>
+            </ol>
+          </div>
+        </div><hr>
+        <div id="middle-C" class="quote-style">
           <strong>💡 Middle C =「中央のド」とは：</strong>
           <p class="indent">MIDIノートの基準となる音程の事です。</p>
           <ul>
@@ -568,7 +666,7 @@
             </li>
             <li><strong>定義の違い:</strong><br>
               このMIDIノートナンバー<code>60</code>の<code>Middle C</code>を
-              <code>YAMAHA</code>式では<code>C3</code>、<code>国際式</code>（Roland等）では
+              <code>YAMAHA</code>式では<code>C3</code>、<code>国際式</code>（Rolandなど）では
               <code>C4</code>と定義しています。他にも派閥があります。
             </li>
             <li><strong>音源による違い:</strong><br>
@@ -600,12 +698,16 @@
           が実行できないため、本ツールは使用できません。</strong>必ずPC環境でご利用ください。
         </p>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Changelog -->
       <section id="changelog"><!--  ***************************************************************************  -->
         <h2>更新履歴</h2>
         <dl id="changelog-list"></dl>
       </section>
+      <!-- #endregion -->
 
+      <!-- #region Legal -->
       <section id="legal"><!--  *******************************************************************************  -->
         <h2>免責事項・ライセンス</h2>
         <h3>免責事項</h3>
@@ -618,6 +720,7 @@
         商用・非商用を問わず、誰でも無償で自由に使用、複製、変更、再配布することができます。
         </p>
       </section>
+      <!-- #endregion -->
     </main>
   </div>
 
@@ -697,6 +800,45 @@
     if (closeSpan) closeSpan.onclick = () => modal.style.display = "none";
 
     modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+    // アコーディオン制御関数
+    function setupAccordion(accordion) {
+      const header = accordion.querySelector('.accordion-header');
+      const content = accordion.querySelector('.accordion-content');
+
+      if (!header || !content) return;
+
+      // 初期状態: is-openクラスがなければ隠しておく
+      if (!accordion.classList.contains('is-open')) {
+        content.style.display = 'none';
+      }
+
+      header.addEventListener('click', () => {
+        if (content.style.display === 'none') {
+          // 開く
+          accordion.classList.add('is-open');
+          content.style.display = 'block';
+          content.animate(
+            [{ height: '0px', opacity: 0 }, { height: content.scrollHeight + 'px', opacity: 1 }],
+            { duration: 300, easing: 'ease-out' }
+          );
+        } else {
+          // 閉じる
+          accordion.classList.remove('is-open');
+          // 閉じるアニメーション
+          const closingAnim = content.animate(
+            [{ height: content.scrollHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+            { duration: 300, easing: 'ease-out' }
+          );
+          closingAnim.onfinish = () => {
+            content.style.display = 'none';
+          };
+        }
+      });
+    }
+
+    // クラス .accordion を持つ要素に適用
+    document.querySelectorAll('.accordion').forEach(setupAccordion);
   </script>
 </body>
 </html>
