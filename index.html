@@ -15,7 +15,7 @@
   </header>
 
   <div class="container">
-    <nav>
+    <nav><!-- ************************************************************************************************  -->
       <ul>
         <li><a href="#introduction">Key Switch Sheet とは</a></li>
         <li><a href="#setup">導入方法</a></li>
@@ -49,13 +49,13 @@
     </nav>
 
     <main>
-      <section id="introduction">
+      <section id="introduction"><!-- ************************************************************************  -->
         <h2>Key Switch Sheet とは</h2>
-        <img src="img\スクリーンショット 2026-01-02 171309.png" alt="" class="zoomable">
         <p>
           <code>Key Switch Sheet</code> は、<code>DAW</code>用のキースイッチマップファイルを
           Googleスプレッドシートで手軽に作成するためのツールです。
         </p>
+        <img src="img/スクリーンショット 2026-01-02 171309.png" alt="" class="zoomable">
         <ul>
           <li>
             1つのアーティキュレーションにつき1つのMIDIノートを出力する
@@ -66,7 +66,7 @@
           </li>
           <li>
             シンプルなキースイッチマップファイルの作成や
-            たたき台作製用としてご活用ください。
+            たたき台作成用としてご活用ください。
           </li>
           <li>
             <code>Cubase</code>,<code>Studio One</code>形式でのエクスポートについては
@@ -74,8 +74,8 @@
           </li>
         </ul>
       </section>
-<!--  * setup  *****************************************************************************  -->
-      <section id="setup">
+
+      <section id="setup"><!-- *******************************************************************************  -->
         <h2>導入方法</h2>
         <ol>
           <li>
@@ -84,7 +84,7 @@
           </li>
           <li>
             <strong>初回実行時の承認手順:</strong><br>
-            スクリプトを初めて実行する際、Googleによる承認画面が表示されます。
+            スクリプトを初めて実行する際、Googleによる承認画面が表示されます。<br>
             以下の手順で許可を行ってください。
             <ul>
               <li>
@@ -106,101 +106,112 @@
                 </div>
               </li>
               <li>
-                アクセス権限の確認画面が表示されます。
-                もし権限の選択（チェックボックス）が表示された場合は、
-                <strong>すべての項目にチェックを入れて</strong>から
-                「許可」をクリックしてください。
+                アクセス権限の確認画面が表示されます。もし権限の選択（チェックボックス）が表示された場合は、
+                <strong>すべての項目にチェックを入れて</strong>から「許可」をクリックしてください。
                 <div class="image-placeholder">
                   [画像: 権限確認画面（すべてチェック）]
                 </div>
               </li>
             </ul>
-            <p><small>
-              ※この警告は、Googleによる検証を受けていない個人作成のスクリプトで表示される
+            <p class="indent note"><small>
+              ※ この警告は、Googleによる検証を受けていない個人作成のスクリプトで表示される
               標準的なものです。<br>この認証作業は初回のみ必要です。
               一度すべての権限を許可すれば、次回以降は毎回認証する必要はありません。
             </small></p>
           </li>
         </ol>
       </section>
-<!--  * sheets  *****************************************************************************  -->
-      <section id="sheets">
+
+      <section id="sheets"><!-- ******************************************************************************  -->
         <h2>シートの構成</h2>
         <p>
           このツールは <code>Main</code>,<code>Groups</code>,<code>Settings</code>の
-          3つのシートで構成されています。
+          3つのシートで構成されています。<br>
+          画面下部のタブを切り替えてシートを切り替えてください。
         </p>
-        <h3 id="sheet-main">1. Main シート</h3>
+
+        <h3 id="sheet-main">Main シート</h3><!-- **********************************************************  -->
         <p>
-          キースイッチマップの主要なデータを入力するシートです。
-          1行につき1つのアーティキュレーション（奏法）を定義します。
-        </p>
-        <p>
-          また、データの入力に便利な<a href="#gemini-gem">Gemini Gem</a>を用意しています。ぜひご活用ください。
+          キースイッチマップの主要なデータを入力するシートです。<br>
+          1行につき1つのアーティキュレーション（奏法）を定義します。<br>
+          手動入力やコピー&ペーストで入力可能です。<br>
+          データの入力に便利な<sup>※</sup><a href="#gemini-gem">Gemini Gem</a>
+          を用意しています。ぜひご活用ください。
         </p>
         <ul>
           <li>
-            <strong>Articulation Name:</strong><br>
-            アーティキュレーション名（キースイッチ名）を入力します。<br>
-            手動入力やコピー＆ペーストで入力可能です。
+            <strong>Articulation Name:</strong><br><!------------------------------------------------------------->
+            アーティキュレーション名（キースイッチ名）を入力します。
           </li>
           <li>
-            <strong>MIDI Note:</strong><br>
-            MIDIノート名を「音名 + 変化記号 + オクターブ数値」の形式で入力します
+            <strong>MIDI Note:</strong><br><!--------------------------------------------------------------------->
+            MIDIノート名を「音名 + 変化記号 + オクターブ数値」の形式で入力します。
             （例: <code>C#-1</code>, <code>F8</code>等）<br>
-            <img src="img\スクリーンショット 2026-01-02 210842.png" alt="">
+            <img src="img/スクリーンショット 2026-01-02 210842.png" alt="">
             <div class="quote-style">
-            💡 入力確定時に自動判定が行われます。それに応じて文字色が変化します。
+              💡 入力確定時に自動判定が行われます。それに応じて文字色が変化します。
               <ul>
-                <li><strong>黒 (正常):</strong>
-                  現在の<sup>※</sup><code>Middle C</code>設定において、
-                  MIDIノート番号が0〜127の範囲内に収まる値。
+                <li><strong>赤 (エラー):</strong><br>
+                  絶対的範囲外、またはフォーマット不正な値です。セルにメモが表示されます。
                 </li>
                 <li>
-                  <strong>オレンジ (範囲外):</strong>
-                  現在の<code>Middle C</code>設定では範囲外ですが、設定変更により有効になる
-                  可能性がある値です。セルにメモが表示されます。
+                  <strong>オレンジ (範囲外):</strong><br>
+                  現在の<sup>※</sup><code>Middle C</code>設定では範囲外ですが、
+                  設定変更により有効になる可能性がある値です。セルにメモが表示されます。
                 </li>
-                <li><strong>赤 (エラー):</strong>
-                  絶対的範囲外、またはフォーマット不正な値です。セルにメモが表示されます。
+                <li><strong>黒 (正常):</strong><br>
+                  現在の<code>Middle C</code>設定において、MIDIノート番号が0〜127の範囲内に収まる値。
                 </li>
               </ul>
             </div>
             <a href="#tips" class="right">※ Middle C とは</a>
           </li>
           <li>
-            <strong>Group Name:</strong><br>
-            <code>Groups</code>シートに記入されたのリストの中からプルダウン選択します。<br>
-            <img src="img\スクリーンショット 2026-01-02 211511.png" alt="">
+            <strong>Group Name:</strong><br><!-------------------------------------------------------------------->
+            アーティキュレーションが所属する<sup>※</sup>グループを定義します。<br>
+            <code>Groups</code>シートに記入されたリストの中からプルダウン選択します。<br>
+            <sup>※</sup><a href="#sidebar-group">サイドバー機能</a>を使って一括指定することも可能です。
+            <img src="img/スクリーンショット 2026-01-02 211511.png" alt="">
             そのため、先ずは<code>Groups</code>シートの<code>Group List</code>列にグループを
             記入しリストを作ってください。<br>
-            サイドバー機能を使って一括指定することも可能です。
+            <p class="alert note">
+              ※エクスポート時にグループが未選択だった場合にはグループリストの先頭のグループが適用されます。<br>
+              Cubase 形式でのエクスポートではグループは4つまでに制限されています。<br>
+              Studio One 形式でのエクスポートではグループは反映されません。<br>
+            </p>
           </li>
           <li>
-            <strong>Color:</strong> <br>
-            <code>#rrggbb</code>形式のカラーコードを入力します。<br>
-            <img src="img\スクリーンショット 2026-01-02 212333.png" alt="">
-              <div class="quote-style">
-                💡 サイドバーの<strong>カラーピッカー</strong>や<strong>プリセット</strong>からも入力可能です。<br>
-                不正な値の場合は文字色が赤になり、メモが表示されます。<br>
-                <small>※<code>Cubase</code>向けに作成する場合は、
-                <a href="#cubase-color">プリセットカラーの使用</a>を推奨します。</small>
-              </div>
+            <strong>Color:</strong> <br><!------------------------------------------------------------------------>
+            <code>#rrggbb</code>形式( 6桁の16進数 )のカラーコードを入力します。<br>
+            <img src="img/スクリーンショット 2026-01-02 212333.png" alt="">
+            <div class="quote-style">
+              <p class="note">
+                💡 <sup>※</sup><a href="#sidebar">サイドバー</a>の<strong>カラーピッカー</strong>や
+                <strong>プリセット</strong>からも入力可能です。<br>
+                不正な値の場合は文字色が赤になり、メモが表示されます。
+              </p>
+              <p class="note"><small>
+                ※エクスポート時に未記入もしくは不正な値だった場合にはデフォルト値が採用されます。<br>
+                <code>Cubase</code>向けに作成する場合は、プリセットカラーの使用を推奨します。
+                <sup>※</sup><a href="#cubase-color">カラー設定の注意</a>
+              </small></p>
+            </div>
           </li>
           <li>
-            <strong>Color Preview:</strong><br>
+            <strong>Color Preview:</strong><br><!----------------------------------------------------------------->
             <code>Color</code>列の値に応じてセルの背景色が設定されます。
           </li>
         </ul>
-        <div class="image-placeholder">[画像: Mainシートの入力例]</div>
 
-        <h3 id="sheet-groups">2. Groups シート</h3>
-        <p><code>Main</code>シートの<code>Group Name</code>列で使用する選択肢を管理します。
-          ここで定義したグループ名が<code>Main</code> シートのプルダウンリストに表示されます。</p>
+        <h3 id="sheet-groups">Groups シート</h3><!-- ******************************************************  -->
+        <p>
+          <code>Main</code>シートの<code>Group Name</code>列で使用する選択肢を管理します。
+          ここで定義したグループ名が<code>Main</code>シートのプルダウンリストに表示されます。
+        </p>
 
-        <h3 id="sheet-settings">3. Settings シート</h3>
-        <p><code>Middle C</code>と<code>Map Name</code>を設定します</p>
-        <img src="img\スクリーンショット 2026-01-02 213319.png" alt="">
+        <h3 id="sheet-settings">Settings シート</h3><!-- **************************************************  -->
+        <p><code>Map Name</code>と<code>Middle C</code>を設定します。</p>
+        <img src="img/スクリーンショット 2026-01-02 213319.png" alt="">
         <ul>
           <li>
             <strong>Map Name:</strong><br>
@@ -208,65 +219,67 @@
           </li>
           <li>
             <strong>Middle C:</strong><br>
-            音源側の<code>Middle C</code>の設定に合わせます。
+            音源側の<sup>※</sup><code>Middle C</code>の設定に合わせます。
             <code>3, 4, 5</code>の値からプルダウンで選択します。
+            <a href="#tips" class="right">※ Middle C とは</a>
           </li>
         </ul>
-        <h4>Mapping Viewer:</h4>
+        <h4 id="mapping-viewer">Mapping Viewer:</h4><!------------------------------------------------------------>
         <p>
-          Settingsシートには、<code>DAW</code>のピアノロールに見立てたキースイッチマッピング確認用の表
+          <code>Settings</code>シートには、<code>DAW</code>のピアノロールに見立てたキースイッチマッピング確認用の表<br>
           <code>Mapping Viewer</code>が用意されています。
         </p>
         <div class="tall-crop">
-          <img src="img\スクリーンショット 2026-01-02 172618.png" alt="" class="zoomable">
+          <img src="img/スクリーンショット 2026-01-02 172618.png" alt="" class="zoomable">
         </div>
         <ul>
-          <li>表にはMIDIノート名とMIDIノートナンバーが表示しています。</li>
+          <li>表にはMIDIノート名とMIDIノートナンバーを表示しています。</li>
           <li>MIDIノートナンバーは<code>Middle C = 60</code>で固定されています。</li>
           <li>
             MIDIノート名は、設定した<code>Middle C</code>の値によって表示（鍵盤上の位置）が変動します。
           </li>
           <li>
             メニューから「🎹→🗺️　マッピングを表示」を実行すると、<code>Main</code>シートに入力した
-            アーティキュレーションのマッピング分布をプレビューできます。
+            アーティキュレーションのマッピング分布をプレビュー・更新できます。
           </li>
         </ul>
       </section>
-<!--  * menu  *****************************************************************************  -->
-      <section id="menus">
+
+      <section id="menus"><!--  ******************************************************************************  -->
         <h2>メニュー機能</h2>
         <p>スプレッドシート上部のメニューから実行できる機能の詳細です。</p>
 
-        <h3 id="menu-project">💼 プロジェクト</h3>
+        <h3 id="menu-project">💼 プロジェクト</h3><!--  ******************************************************  -->
         <dl class="indent">
-          <dt><strong>💾　プロジェクトを保存...</strong>
-          </dt>
+          <dt><strong>💾　プロジェクトを保存...</strong></dt>
           <dd>現在のシートの内容を<code>JSON</code>形式のファイルとして
             ローカル（PC）にダウンロードします。<br> バックアップとして機能します。<br>
             <small>
               ※シートの編集状態をそのまま保存するため、不正な値や未記入の項目があっても保存可能です。
             </small>
-          </dd><br>
+          </dd>
           <dt><strong>📂　プロジェクトを読み込み...</strong></dt>
-          <dd>保存された<code>JSON</code>ファイルを読み込み、シートの内容を復元します。</dd><br>
+          <dd>保存された<code>JSON</code>ファイルを読み込み、シートの内容を復元します。</dd>
           <dt><strong>♻️　シートのリセット(新規作成)...</strong></dt>
           <dd>シートの内容をクリアし、新規作成状態にします。</dd>
         </dl>
 
-        <h3 id="menu-export">📤 エクスポート</h3>
+        <h3 id="menu-export">📤 エクスポート</h3><!--  *******************************************************  -->
         <p>作成したデータを各<code>DAW</code>用の形式で書き出します。
           メニューから出力形式を選択してください。</p>
         <div class="alert">
           <strong>❗ エクスポート時の注意:</strong>
           <ul>
             <li>
-              <strong>MIDIノートのエラー:</strong>不正な値や範囲外の値が存在する場合、
-              エクスポートは実行できません。ダイアログにエラー件数が表示されますので、
+              <strong>MIDIノートのエラー:</strong><br>
+              不正な値や範囲外の値が存在する場合、エクスポートは実行できません。
+              ダイアログにエラー件数が表示されますので、
               <code>Main</code>シートを修正してから再度実行してください。
             </li>
             <li>
-              <strong>その他の項目の補正:</strong>MIDIノート以外の項目に不正な値や
-              未記入がある場合、デフォルト値に自動補正されて出力されますのでご注意ください。
+              <strong>その他の項目の補正:</strong><br>
+              MIDIノート以外の項目に不正な値や未記入がある場合、
+              デフォルト値に自動補正されて出力されますのでご注意ください。
             </li>
           </ul>
         </div>
@@ -277,10 +290,11 @@
           <li><code>.keyswitch</code>(Studio One)</li>
         </ul>
         <h4>共通設定:</h4>
-        <p><strong>オクターブオフセット:</strong><br>
-        エクスポート時に表示されるダイアログで、<code>オクターブオフセット</code>（初期値: 0）を設定できます。
+        <p id="octave-offset"><strong>オクターブオフセット:</strong><br>
+          エクスポート時に表示されるダイアログで、<code>オクターブオフセット</code>
+          （初期値: 0）を設定できます。
         </p>
-        <img src="img\スクリーンショット 2026-01-02 172414.png" alt="">
+        <img src="img/スクリーンショット 2026-01-02 172414.png" alt="">
         <ul>
           <li>音源側の<code>Middle C</code>と<code>DAW</code>側の
             <code>Middle C</code>の設定が異なる場合に、この値で補正します。
@@ -289,9 +303,11 @@
             <code>DAW</code>上で意図したキースイッチが反応しない場合は、
             この値を<code>±</code>して再度エクスポート・読み込みを試してください。
           </li>
-          <li>補正後のMIDIノートナンバーが<code>0～127</code>の範囲を超えるような値には 設定できません。</li>
+          <li>
+            補正後のMIDIノートナンバーが<code>0～127</code>の範囲を超えるような値には 設定できません。
+          </li>
         </ul>
-        <h4>DAW固有の設定</h4>
+        <h4>DAW固有の設定</h4><!---------------------------------------------------------------------------------->
         <dl>
           <dt><strong>Cubase (.expressionmap)</strong></dt>
           <dd>
@@ -307,28 +323,29 @@
               </li>
             </ul>
             <div class="alert">
-            <p id="cubase-color">
-              <strong>❗ カラー設定の注意（プリセットカラー推奨）:</strong><br>
-              <code>Cubase</code>の<code>Expression Map</code>では、色はカラーコードではなく
-              「プリセット番号」で管理されています。そのため、任意のカラーコードを入力しても
-              <code>Cubase</code>上では正しく反映されません。
-            </p>
-            <ul>
-              <li>
-                本ツールのプリセットカラー（1～16）は、<code>Cubase</code>
-                のデフォルトカラー番号に対応しています。
-              </li>
-              <li>
-                プリセットと同じ色を入力した場合、対応する<code>Cubase</code>のカラー番号として出力されます。
-              </li>
-              <li>
-                それ以外の色が入力されている場合は、デフォルトのカラー番号に自動補正されます。
-              </li>
-              <li>
-                <code>Cubase</code>用に作成する場合は、<strong>プリセットカラーから選択して入力する事
-                </strong>を推奨します。
-              </li>
-            </ul>
+              <p id="cubase-color" class="note">
+                <strong>❗ カラー設定の注意（プリセットカラー推奨）:</strong><br>
+                <code>Cubase</code>の<code>Expression Map</code>では、色はカラーコードではなく
+                「プリセット番号」で管理されています。そのため、任意のカラーコードを入力しても
+                <code>Cubase</code>上では正しく反映されません。
+              </p>
+              <ul>
+                <li>
+                  本ツールのプリセットカラー（1～16）は、<code>Cubase</code>
+                  のデフォルトカラー番号に対応しています。
+                </li>
+                <li>
+                  プリセットと同じ色を入力した場合、対応する<code>Cubase</code>
+                  のデフォルトのプリセットカラー番号として出力されます。
+                </li>
+                <li>
+                  それ以外の色が入力されている場合は、デフォルトのカラー番号に自動補正されます。
+                </li>
+                <li>
+                  <code>Cubase</code>用に作成する場合は、
+                  <strong>プリセットカラーから選択して入力すること</strong>を推奨します。
+                </li>
+              </ul>
             </div>
           </dd>
           <dt><strong>Studio One (.keyswitch)</strong></dt>
@@ -346,37 +363,45 @@
             </ul>
           </dd>
         </dl>
-<!--  * App Tool  *****************************************************************************  -->
-        <h3 id="menu-tools">🛠️ Appツール</h3>
+
+        <h3 id="menu-tools">🛠️ Appツール</h3><!--  ***********************************************************  -->
         <p>入力作業を効率化するための補助機能です。</p>
         <ul>
           <li>
-            <strong>🎚️　サイドバーを開く:</strong><br>
-            画面右側に編集用のサイドバーを表示します。
-            サイドバーの詳細は<a href="#sidebar">サイドバー機能</a>を参照してください。
+            <strong>🎚️　サイドバーを開く:</strong><br><!------------------------------------------------------------>
+            画面右側に編集用のサイドバーを表示します。<br>
+            サイドバーの詳細は<sup>※</sup><a href="#sidebar">サイドバー機能</a>を参照してください。
           </li>
-          <li><strong>Mainシート</strong>
+          <li><strong>Mainシート</strong><!------------------------------------------------------------------------>
             <ul>
               <li>
                 <strong>🔃⇊🎹　MIDIノート順にソート( 降順 / 昇順 ):</strong><br>
-                MIDIノート番号順に並べ替えます。
+                MIDIノート番号順に<code>Main</code>シート全体を並べ替えます。
               </li>
               <li>
                 <strong>🔃∵🏷️　グループ定義順にソート:</strong><br>
-                <code>Groups</code>シートのグループリストの定義順に並べ替えます。
+                <code>Groups</code>シートのグループリストの定義順に<code>Main</code>シート全体を並べ替えます。
               </li>
               <li>
                 <strong>🧩⇈🎹　半音階で範囲を埋める( 昇順 / 降順 ):</strong><br>
-                選択した範囲のMIDIノートを、半音階の連番で上書きします。
+                選択開始セル（太い青枠）のMIDIノートを基準に、選択した範囲に対して
+                半音階の連番MIDIノートでセルを埋めます。<br>
+                スプレッドシートのオートフィル機能と類似したMIDIノート用のオートフィル機能です。<br>
+                <p class="alert note">
+                  ※選択開始セルから上に向かって選択していても基準セルは選択開始セルとなります。<br>
+                  よって、基準セルがヘッダ行だった場合、基準セルに有効なMIDIノートが入力されていなかった
+                  場合等はエラーとなり処理が実行されません。
+                </p>
               </li>
-              <img src="img\スクリーンショット 2026-01-02 223739.png" alt="">
             </ul>
+            <img src="img/スクリーンショット 2026-01-02 223739.png" alt="">
           </li>
-          <li><strong>Settingsシート</strong>
+          <li><strong>Settingsシート</strong><!-------------------------------------------------------------------->
             <ul>
               <li>
                 <strong>🎹→🗺️　マッピングを表示:</strong><br>
-                <code>Settings</code>シートの<code>Mapping Viewer</code>を更新します。
+                <code>Settings</code>シートの<sup>※</sup>
+                <a href="#mapping-viewer">Mapping Viewer</a>を更新します。
               </li>
               <li>
                 <strong>🗺️→🧹　マッピングをクリア:</strong><br>
@@ -386,18 +411,18 @@
           </li>
         </ul>
 
-        <h3 id="menu-help">❓ Appヘルプ</h3>
+        <h3 id="menu-help">❓ Appヘルプ</h3><!--  *************************************************************  -->
         <p>ヘルプやトラブルシューティングに関する機能です。</p>
         <ul>
           <li>
             <strong>📝　ヘッダーヘルプの表示切替:</strong><br>
             各列のヘッダー（1行目）に表示されるヘルプメモの表示/非表示を切り替えます。
+            <img src="img/スクリーンショット 2026-01-02 224525.png" alt="">
           </li>
-          <img src="img\スクリーンショット 2026-01-02 224525.png" alt="">
           <li>
             <strong>🌐　ヘルプセンターを表示:</strong><br>
-            各種サポートリソースへアクセスするためのダイアログを表示します。
-            <br>以下のリンクボタンが表示されます。
+            各種サポートリソースへアクセスするためのダイアログを表示します。<br>
+            以下のリンクボタンが表示されます。
             <ul>
               <li>
                 <strong>📖 オンラインマニュアル:</strong><br>
@@ -410,7 +435,7 @@
               <li>
                 <strong>💎 キースイッチ抽出 Gem</strong><br>
                 シートの入力作業に便利な<code>Gemini Gem</code>を作りました。ぜひご活用ください。<br>
-                <code>Gemini Gem</code>の詳細は<a href="#gemini-gem">キースイッチ抽出 Gem</a>
+                <code>Gemini Gem</code>の詳細は<sup>※</sup><a href="#gemini-gem">キースイッチ抽出 Gem</a>
                 を参照してください。
               </li>
             </ul>
@@ -427,17 +452,17 @@
           </li>
         </ul>
       </section>
-<!--  * sidebar  *****************************************************************************  -->
-      <section id="sidebar">
+
+      <section id="sidebar"><!--  ****************************************************************************  -->
         <h2>サイドバー機能</h2>
         <p>メニューの「🛠️ Appツール」&gt;「🎚️　サイドバーを開く」から
           表示されるサイドバーでは、
           色やグループの管理・適用を直感的に行えます。</p>
 
-        <h3 id="sidebar-color">🎨 カラー選択</h3>
-        <p>カラーピッカーやプリセットから色を選択できます。</p>
+        <h3 id="sidebar-color">🎨 カラー選択</h3><!--  *******************************************************  -->
+        <p>プリセットカラーやカラーピッカーから色を選択できます。</p>
         <div class="tall-crop">
-          <img src="img\スクリーンショット 2026-01-02 170717.png" alt="" class="zoomable">
+          <img src="img/スクリーンショット 2026-01-02 170717.png" alt="" class="zoomable">
         </div>
         <ul>
           <li>
@@ -452,62 +477,67 @@
         </ul>
         <p>選択した色は、下部のアクションボタンを使ってシートに適用します。</p>
 
-        <h3 id="sidebar-group">🏷️ グループ選択</h3>
+        <h3 id="sidebar-group">🏷️ グループ選択</h3><!--  ******************************************************  -->
         <p>
           <code>Groups</code>シートで定義されたグループをプルダウンから選択します。
-          <code>Groups</code>シートを編集した場合は、更新ボタン（↻）を押してリストを再読み込みしてください。
+          <code>Groups</code>シートを編集した場合は、更新ボタン「<span class="skyblue">↻</span>
+          グループリストを再読み込み」を押してリストを更新してください。
         </p>
+        <img src="img/スクリーンショット 2026-01-03 144145.png" alt="">
 
-        <h3 id="sidebar-action">✔️ アクション (Mainシート)</h3>
+        <h3 id="sidebar-action">✔️ アクション (Mainシート)</h3><!--  ******************************************  -->
         <div class="quote-style">
           <span>💡 Tips</span>
           <p class="indent">
             選択中の色やグループを<code>Main</code>シートに適用するボタン群です。<br>
-            選択範囲は複数であっても連続していなくても問題ありません<br>
-            また、行全体やターゲットでは無い列を選択してもターゲットの列に実行されます
+            選択範囲は複数であっても連続していなくても問題ありません。<br>
+            また、行全体やターゲットでは無い列を選択してもターゲットの列に実行されます。
           </p>
         </div>
         <ul>
           <li>
             <strong>🎨→🔲　色を選択範囲に適用:</strong><br>
-            <code>Main</code>シートで選択しているセルの行に対して、現在選択中の「カラー」を適用します。
+            <code>Main</code>シートで選択している行の<code>Color</code>列のセルに対して、
+            現在選択中の「カラー」を適用します。
           </li>
           <li>
             <strong>🏷️→🔲　グループを選択範囲に適用:</strong><br>
-            <code>Main</code>シートで選択しているセルの行に対して、現在選択中の「グループ」を適用します。
+            <code>Main</code>シートで選択している行の<code>Group Name</code>列に対して、
+            現在選択中の「グループ」を適用します。
           </li>
           <li>
             <strong>🎨→🏷️　色を指定グループに適用:</strong><br>
-            <code>Main</code>シート内の、現在選択中の「グループ」が設定されている全ての行に対して、<br>
+            <code>Main</code>シート内の、現在選択中の「グループ」が設定されている全ての行の
+            <code>Color</code>列のセルに対して、
             現在選択中の「カラー」を一括適用します。
           </li>
         </ul>
       </section>
-<!--  * gemini-gem  ***********************************************************************  -->
-      <section id="gemini-gem">
+
+      <section id="gemini-gem"><!--  *************************************************************************  -->
         <h2>キースイッチ抽出 Gem</h2>
         <p>
-          <code>Key Switch Sheet</code> への入力作業を補助するために作成された
+          <code>Main</code>シートへの入力作業を補助するために作成された
           <code>Google Gemini</code>用のカスタム<code>Gem</code>です。
         </p>
         <div class="tall-crop">
-          <img src="img\スクリーンショット 2026-01-02 172906.png" alt="" class="zoomable">
+          <img src="img/スクリーンショット 2026-01-02 172906.png" alt="" class="zoomable">
         </div>
         <ol>
           <li>
             <strong>抽出機能:</strong><br>
             音源のマニュアル等からテキスト、PDF、スクリーンショット等をアップロードします。<br>
             <strong>アーティキュレーション名</strong>と<strong>MIDIノート名</strong>が抽出されます。<br>
-            過不足や誤りが無いかを確認して下さい。
+            過不足や誤りが無いかを確認してください。
           </li>
           <li>
             <strong>データ整形:</strong><br>
-            簡単な質問に答えます。翻訳したり、短縮形にしたりと言った注文も行えます。<br>
+            簡単な質問に答えます。翻訳したり、短縮形にしたりといった注文も行えます。<br>
           </li>
           <li>
             <strong>データ出力:</strong><br>
             抽出したデータは、<code>Main</code>シートへの貼り付けに適したヘッダ行無しの表形式で表示されます。<br>
-            そのままコピーして貼り付けるか<code>TSV</code>や<code>CSV</code>などの形式にする事もできます。
+            そのままコピーして貼り付けるか<code>TSV</code>や<code>CSV</code>などの形式にすることもできます。
           </li>
         </ol>
         <div class="alert">
@@ -517,15 +547,15 @@
           抽出されたデータは元のマニュアルと照らし合わせて確認を行ってください。
         </div>
         <div class="right">
-        こちらからもアクセスできます。
+          こちらからもアクセスできます。
           <a href="https://gemini.google.com/gem/10KXJeQ0_FxsTAfYv99VfV0LSSe6h5yj3?usp=sharing"
             target="_blank" rel="noopener noreferrer" class="gem-btn">
             💎 キースイッチ抽出 Gem を開く
           </a>
         </div>
       </section>
-<!--  * tips  *****************************************************************************  -->
-      <section id="tips">
+
+      <section id="tips"><!--  *******************************************************************************  -->
         <h2>Tips</h2>
         <div class="quote-style">
           <strong>💡 Middle C =「中央のド」とは：</strong>
@@ -536,14 +566,15 @@
               MIDIノートナンバー<code>60</code>
               が<code>Middle C</code>= 中央のドです。
             </li>
-            <li><strong>表記の揺れ:</strong><br>
+            <li><strong>定義の違い:</strong><br>
+              このMIDIノートナンバー<code>60</code>の<code>Middle C</code>を
               <code>YAMAHA</code>式では<code>C3</code>、<code>国際式</code>（Roland等）では
-              <code>C4</code>です。他にも派閥があります。
+              <code>C4</code>と定義しています。他にも派閥があります。
             </li>
             <li><strong>音源による違い:</strong><br>
-              この<code>Middle C</code>の値が音源メーカーや<code>DAW</code>によってまちまちなので
+              採用している<code>Middle C</code>の定義が音源メーカーや<code>DAW</code>によってまちまちなので
               入力した音と出力される音でオクターブのズレが生じます。<br>
-              マニュアルに記載されたキースイッチのMIDIノートが意図した
+              マニュアルに記載されたMIDIノートを入力しているにもかかわらず、キースイッチのMIDIノートが意図した
               反応をしない時はこれが原因である可能性があります。
             </li>
           </ul>
@@ -552,23 +583,30 @@
           <strong>本アプリでの設定：</strong><br>
           <code>Settings</code>シートの<code>Middle C</code>で、使用する
           <strong>音源側の仕様に合わせて</strong><code>3, 4, 5</code>から値を選択してください。<br>
-          もし<code>Main</code>シートで「範囲外」の判定が出た場合は、この<code>Middle C</code>
-          の設定が音源と合っていない可能性があります。設定を変更して値が正常範囲（黒色）になるか確認してください。
+          もし<code>Main</code>シートで「範囲外」の判定が出た場合は、この<code>Middle C</code>の設定が
+          音源と合っていない可能性があります。設定を変更して値が正常範囲（黒色）になるか確認してください。<br>
         </p>
-        <h3>推奨ブラウザ・環境</h3>
         <p>
-          PC版のブラウザであれば特に問題無いと思われます。<br>ただし、
+          それでも音源側と<code>DAW</code>側の採用している<code>Middle C</code>が合わない場合はエクスポート時に
+          <sup>※</sup><a href="#octave-offset">オクターブオフセット</a>を設定することによって対応してください。<br>
+          <small>
+            ※<code>DAW</code>側でこの差分を吸収する設定ができる機能が搭載されている物もあります。
+          </small>
+        </p>
+        <h3>推奨ブラウザ・環境</h3><!-- ************************************************************************  -->
+        <p>
+          PC版のブラウザであれば特に問題ないと思われます。<br>ただし、
           <strong>スマートフォンやタブレットのアプリ版スプレッドシートでは GAS（スクリプト）
           が実行できないため、本ツールは使用できません。</strong>必ずPC環境でご利用ください。
         </p>
       </section>
-<!--  * changelog  ************************************************************************  -->
-      <section id="changelog">
+
+      <section id="changelog"><!--  ***************************************************************************  -->
         <h2>更新履歴</h2>
         <dl id="changelog-list"></dl>
       </section>
-<!--  * legal  ***************************************************************************  -->
-      <section id="legal">
+
+      <section id="legal"><!--  *******************************************************************************  -->
         <h2>免責事項・ライセンス</h2>
         <h3>免責事項</h3>
         <p>
@@ -583,7 +621,7 @@
     </main>
   </div>
 
-  <footer>
+  <footer><!--  ***********************************************************************************************  -->
     <p>&copy; 2025 Second Illness</p>
   </footer>
 
@@ -655,7 +693,7 @@
       });
     });
 
-    const closeSpan = document.getElementsByClassName("close")[0];
+    const closeSpan = document.querySelector(".close");
     if (closeSpan) closeSpan.onclick = () => modal.style.display = "none";
 
     modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };

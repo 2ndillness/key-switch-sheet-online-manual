@@ -48,7 +48,7 @@ p, ul, ol, dl {
   margin-top: 0;
 }
 
-li {
+li, dt, dd{
   margin-bottom: 0.8rem;
 }
 
@@ -125,7 +125,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #007bff;
+  color: #0073ff;
 }
 
 nav ul ul {
@@ -162,6 +162,7 @@ nav ul ul a {
   border: 1px solid #ffeeba;
   padding: 1rem;
   border-radius: 4px;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   color: #856404;
 }
@@ -198,17 +199,17 @@ img {
 
 /* 縦長画像のトリミング用ラッパー */
 .tall-crop {
-  position: relative;     /* アイコンの位置基準にする */
-  max-height: 300px;      /* 高さを300pxに制限 */
-  overflow: hidden;       /* はみ出た部分を隠す */
-  width: fit-content;     /* 中身（画像）の幅に合わせる */
-  margin: 1rem auto;      /* 中央揃え */
-  border: 1px solid #ddd; /* 枠線はラッパーにつける */
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 1rem auto;
+  border: 1px solid #ddd;
   border-radius: 4px;
 }
 .tall-crop img {
-  margin: 0;              /* ラッパー内で余白をリセット */
-  border: none;           /* 画像自体の枠線を消す */
+  margin: 0;
+  border: none;
   border-radius: 0;
 }
 
@@ -285,7 +286,7 @@ img {
 
 #back-to-top:hover,
 .gem-btn:hover {
-  background: #007bff;
+  background: #0073ff;
 }
 
 #back-to-top {
@@ -344,9 +345,18 @@ img {
   margin-left: 2rem;
 }
 
+.note {
+  padding-left: 2em;
+  text-indent: -1em;;
+}
+
 .right {
   display: block;
   text-align: right;
+}
+
+.skyblue {
+  color: #0073ff;
 }
 
 /* ==========================================================================
