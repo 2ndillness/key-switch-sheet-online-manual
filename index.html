@@ -449,7 +449,10 @@
               </li>
               <li>
                 <strong>📺 YouTube 解説動画:</strong><br>
-                詳しい使い方などはこちらで解説する予定です。ただいま準備中です。
+                解説動画へのリンクです。こちらのマニュアルからも視聴できます。
+                <div id="video-container">
+                  詳しい使い方などはこちらで解説する予定です。ただいま準備中です。
+                </div><hr>
               </li>
               <li>
                 <strong>💎 キースイッチ抽出 Gem</strong><br>
@@ -582,7 +585,7 @@
         <div class="right">
           こちらからもアクセスできます。
           <a href="https://gemini.google.com/gem/10KXJeQ0_FxsTAfYv99VfV0LSSe6h5yj3?usp=sharing"
-            target="_blank" rel="noopener noreferrer" class="gem-btn">
+            target="_blank" rel="noopener noreferrer" class="gem-btn js-gem-link">
             💎 キースイッチ抽出 Gem を開く
           </a>
         </div>
@@ -784,6 +787,69 @@
         changelogList.appendChild(dd);
       });
     }
+
+    // リンク設定(app_links.json)の読み込みと適用
+    fetch('app_links.json')
+      .then(response => response.json())
+      .then(links => {
+        // 1. Gemini Gemリンクの更新
+        const gemLink = links.find(link => link.label.includes('Gem'));
+        if (gemLink) {
+          const gemBtns = document.querySelectorAll('.js-gem-link');
+          gemBtns.forEach(btn => btn.href = gemLink.url);
+        }
+
+        // 2. 動画セクションの更新
+        const videoLink = links.find(link => link.label.includes('YouTube'));
+        const videoContainer = document.getElementById('video-container');
+        if (videoLink && videoContainer) {
+          videoContainer.innerHTML = ''; // 既存のプレースホルダーをクリア
+
+          // URLから動画IDを抽出 (v=XXXX)
+          let videoId = null;
+          try {
+            const urlObj = new URL(videoLink.url);
+            videoId = urlObj.searchParams.get('v');
+          } catch (e) {
+            // URL解析失敗時はリンクとして扱う
+          }
+
+          if (videoId) {
+            // 動画IDがある場合は埋め込みプレーヤーを表示
+            const wrapper = document.createElement('div');
+            wrapper.className = 'video-responsive';
+            wrapper.innerHTML = `
+              <iframe
+                src="https://www.youtube.com/embed/${videoId}"
+                title="${videoLink.label}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>`;
+            videoContainer.appendChild(wrapper);
+          } else {
+            // 動画IDがない場合は準備中メッセージを表示
+            const p = document.createElement('p');
+            p.textContent = '詳しい使い方などはこちらで解説する予定です。ただいま準備中です。';
+            p.style.marginBottom = '0.5rem';
+            videoContainer.appendChild(p);
+
+            // URLが設定されている場合（チャンネルTOPなど）はリンクボタンを表示
+            if (videoLink.url) {
+              const a = document.createElement('a');
+              a.href = videoLink.url;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              a.className = 'gem-btn'; // 既存のボタンスタイルを流用
+              a.textContent = videoLink.label;
+              a.style.display = 'inline-block';
+              a.style.textDecoration = 'none';
+              a.style.textAlign = 'center';
+              videoContainer.appendChild(a);
+            }
+          }
+        }
+      })
+      .catch(err => console.error('リンク設定の読み込みに失敗しました', err));
 
     // 画像モーダル制御
     const modal = document.getElementById("imageModal");

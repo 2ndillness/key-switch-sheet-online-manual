@@ -206,6 +206,26 @@ img {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+/* YouTube埋め込み用レスポンシブコンテナ */
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 アスペクト比 */
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* 画像拡大モーダル用スタイル */
 .zoomable {
   max-width: 100%; /* 親要素の幅いっぱいまで許容 */
