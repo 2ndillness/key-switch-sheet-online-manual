@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   color: #333;
-  line-height: 1.8;
+  line-height: 2;
 }
 
 h1 {
@@ -32,7 +32,7 @@ h2 {
   border-bottom: 1px solid #cfcfcf;
   padding-bottom: 0.3rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: #194073;
 }
 
 h3 {
@@ -68,7 +68,7 @@ hr {
 2. Layout (レイアウト)
 ========================================================================== */
 header {
-  background: #2c3e50;
+  background: #194073;
   color: #fff;
   padding: 1rem 2rem;
 }
@@ -162,33 +162,32 @@ nav ul ul a {
   font-size: 0.9rem;
 }
 
-.alert {
-  font-size: 0.9rem;
-  background: #fff3cd;
-  border: 1px solid #ffeeba;
-  padding: 1rem 1rem 0.5rem;
+.alert,
+.quote-style {
+  padding: 1.25rem 1.25rem 0.5rem;
   border-radius: 4px;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.alert {
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
   color: #856404;
 }
 
 .quote-style {
   background: #f0f4f9;
-  padding: 1.25rem 1.25rem 0.5rem;
-  border-radius: 4px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   border-left: 5px solid #d0d7de;
 }
 
-.alert-float-image {
+.float-image {
   float: left;
   margin-right: 3rem;
 }
 
-.alert-float-image .zoom-container,
-.alert-float-image img {
+.float-image .zoom-container,
+.float-image img {
   margin: 0;
 }
 
@@ -218,12 +217,16 @@ img {
 .zoomable:hover { opacity: 0.7; }
 
 /* 縦長画像のトリミング用ラッパー */
-.tall-crop {
+.tall-crop,
+.zoom-container {
   position: relative;
-  max-height: 300px;
-  overflow: hidden;
   width: fit-content;
   margin: 1rem auto;
+}
+
+.tall-crop {
+  max-height: 300px;
+  overflow: hidden;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -235,9 +238,6 @@ img {
 
 /* ズーム可能を示すアイコンとラッパー */
 .zoom-container {
-  position: relative;
-  width: fit-content;
-  margin: 1rem auto;
   display: block;
 }
 .zoom-container img {
@@ -299,7 +299,7 @@ img {
 /* --- Buttons --- */
 /* 共通ボタン設定 */
 #back-to-top,.gem-btn {
-  background: #2c3e50;
+  background: #194073;
   color: #fff;
   transition: background 0.3s;
 }
@@ -342,30 +342,22 @@ img {
   display: inline-block;
 }
 
-.gem-note {
-  display: block;
-  margin-top: 0.5rem;
-  color: #666;
-  font-size: 0.8rem;
-}
-
 /* --- Changelog --- */
 #changelog-list dt {
   font-weight: bold;
   margin-top: 1.5rem;
   padding-left: 0.5rem;
-  border-left: 4px solid #2c3e50;
+  border-left: 4px solid #194073;
   line-height: 1.4;
 }
 
 /* --- Accordion --- */
 .accordion .accordion-header {
-  display: block;       /* strongタグ等でもブロック要素として扱う */
-  cursor: pointer;      /* カーソルをボタンと同じにする */
-  position: relative;   /* カスタムアイコンの配置基準 */
-  padding: 0.5rem 0.5rem 0.5rem 1.5em;  /* アイコンのスペースと余白を確保 */
-  outline: none;
-  user-select: none;    /* テキスト選択防止 */
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 0.5rem 0.5rem 1.5em;
+  user-select: none;
   border-radius: 4px;
   transition: background-color 0.2s;
 }
@@ -382,7 +374,7 @@ img {
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.8em;
-  transition: transform 0.3s ease; /* 回転アニメーション */
+  transition: transform 0.3s ease;
 }
 
 /* 開いている時のアイコン回転（JSでクラスを制御） */
@@ -405,6 +397,14 @@ img {
 .right {
   display: block;
   text-align: right;
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+.very-small {
+  font-size: 0.8rem;
 }
 
 .skyblue {
