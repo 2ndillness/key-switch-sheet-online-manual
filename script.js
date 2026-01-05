@@ -1,12 +1,21 @@
 // トップへ戻るボタンの制御
 const backToTop = document.getElementById('back-to-top');
+let isScrolling = false;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.classList.add('visible');
-  } else {
-    backToTop.classList.remove('visible');
+  if (!isScrolling) {
+    window.requestAnimationFrame(() => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+      isScrolling = false;
+    });
+    isScrolling = true;
   }
-});
+}, { passive: true });
+
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -15,7 +24,10 @@ backToTop.addEventListener('click', () => {
 const changelogList = document.getElementById('changelog-list');
 if (changelogList) {
   fetch('changelog.json')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    })
     .then(data => {
       data.forEach(item => {
         // dt要素 (日付とバージョン)
@@ -42,13 +54,17 @@ if (changelogList) {
 
 // リンク設定(app_links.json)の読み込みと適用
 fetch('app_links.json')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return response.json();
+  })
   .then(links => {
     // 0. 配布用テンプレートリンクの更新
     const sheetIdEntry = links.find(link => link.label === 'Spreadsheet ID');
     const templateLink = document.getElementById('template-link');
     if (sheetIdEntry && templateLink) {
-      templateLink.href = `https://docs.google.com/spreadsheets/d/${sheetIdEntry.url}/template/preview`;
+      templateLink.href =
+        `https://docs.google.com/spreadsheets/d/${sheetIdEntry.url}/template/preview`;
     }
 
     // 1. Gemini Gemリンクの更新
@@ -141,6 +157,7 @@ modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; }
 const setupAccordion = (accordion)  => {
   const header = accordion.querySelector('.accordion-header');
   const content = accordion.querySelector('.accordion-content');
+  let animation = null; // アニメーションインスタンスを保持
 
   if (!header || !content) return;
 
@@ -150,24 +167,31 @@ const setupAccordion = (accordion)  => {
   }
 
   header.addEventListener('click', () => {
+    // アニメーション中は操作を無視、またはキャンセルして再実行
+    if (animation) {
+      animation.cancel();
+    }
+
     if (content.style.display === 'none') {
       // 開く
       accordion.classList.add('is-open');
       content.style.display = 'block';
-      content.animate(
+      animation = content.animate(
         [{ height: '0px', opacity: 0 }, { height: content.scrollHeight + 'px', opacity: 1 }],
         { duration: 300, easing: 'ease-out' }
       );
+      animation.onfinish = () => animation = null;
     } else {
       // 閉じる
       accordion.classList.remove('is-open');
       // 閉じるアニメーション
-      const closingAnim = content.animate(
+      animation = content.animate(
         [{ height: content.scrollHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
         { duration: 300, easing: 'ease-out' }
       );
-      closingAnim.onfinish = () => {
+      animation.onfinish = () => {
         content.style.display = 'none';
+        animation = null;
       };
     }
   });
