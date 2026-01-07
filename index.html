@@ -134,8 +134,8 @@
                 以上で、このスプレッドシートのスクリプトが使用できるようになります。
               </li>
             </ol>
-            <p class="quote-style indent note">
-              💡 この警告は、<code>Google</code>による検証を受けていない個人作成のスクリプトで表示される
+            <p class="quote small note hint">
+              この警告は、<code>Google</code>による検証を受けていない個人作成のスクリプトで表示される
               標準的なものです。<br>この認証作業は初回のみ必要です。
               一度すべての権限を許可すれば、次回以降は毎回認証する必要はありません。
             </p>
@@ -154,7 +154,7 @@
           画面左下のタブをクリックしてシートを切り替えてください。
         </p>
 
-        <h3 id="sheet-main">Main シート</h3><!-- **************************************************************  -->
+        <h3 id="sheet-main">Main シート</h3><!-- ==============================================================  -->
         <p>
           キースイッチマップの主要なデータを入力するシートです。<br>
           1行につき1つのアーティキュレーション（奏法）を定義します。<br>
@@ -171,13 +171,13 @@
             <strong>MIDI Note:</strong><br><!--------------------------------------------------------------------->
             MIDIノート名を「音名 + 変化記号 + オクターブ数値」の形式で入力します。
             （例: <code>C#-1</code>, <code>F8</code>など）<br>
-            <img src="img/validate-midi.png" alt="varidate-midi">
-            <p class="note small">
-              ※小文字や「♭」表記にも対応していますが、基本的には音名は「大文字」、
+            <img src="img/validate-midi.png" alt="validate-midi">
+            <p class="note small notice">
+              小文字や「♭」表記にも対応していますが、基本的には音名は「大文字」、
               変化記号は「#」で統一することを推奨します。
             </p>
-            <div class="quote-style">
-              💡 入力確定時に自動判定が行われます。それに応じて文字色が変化します。
+            <div class="quote hint">
+              入力確定時に自動判定が行われます。それに応じて文字色が変化します。
               <ul>
                 <li><strong class="warning">赤 </strong>(エラー):<br>
                   絶対的範囲外、またはフォーマット不正な値です。セルにメモが表示されます。
@@ -203,28 +203,32 @@
             <code>Groups</code>シートに記入されたリストの中からプルダウン選択します。<br>
             <a href="#sidebar-group" class="jump">サイドバー機能</a>を使って一括指定することも可能です。
             <img src="img/group-name.png" alt="group-name">
-            そのため、先ずは<code>Groups</code>シートの<code>Group List</code>列にグループを
-            記入しリストを作ってください。<br>
-            <p class="alert note small">
-              ※ グループの扱い<br>
-              Cakewalkでは、アーティキュレーションはいずれかのグループに所属している必要があります。<br>
-              エクスポート時にグループが未選択だった場合にはグループリストの先頭のグループが適用されます。<br>
-              Cubase 形式でのエクスポートではグループは4つまでに制限されています。<br>
-              Studio One 形式でのエクスポートではグループは反映されません。<br>
-            </p>
+            <code>Group Name</code>を設定するには、先に<code>Groups</code>シートの<code>Group List</code>
+            列にグループを記入し、リストを作成する必要があります。<br>
+            <div class="alert small">
+              <p class="note notice">
+                グループの扱い<br>
+                エクスポート時にグループが未選択だった場合にはグループリストの先頭のグループが適用されます。
+              </p>
+              <ul>
+                <li>Cakewalkでは、アーティキュレーションはいずれかのグループに所属している必要があります。</li>
+                <li>Cubase 形式でのエクスポートではグループは4つまでに制限されています。</li>
+                <li>Studio One 形式でのエクスポートではグループは反映されません。</li>
+              </ul>
+            </div>
           </li>
           <li>
             <strong>Color:</strong> <br><!------------------------------------------------------------------------>
             <code>#rrggbb</code>形式( 6桁の16進数 )のカラーコードを入力します。<br>
             <img src="img/color-code.png" alt="color-code">
-            <div class="quote-style">
-              <p class="note">
-                💡 <a href="#sidebar" class="jump">サイドバー</a>の<strong>プリセットカラー</strong>
+            <div class="quote">
+              <p class="note hint">
+                <a href="#sidebar" class="jump">サイドバー</a>の<strong>プリセットカラー</strong>
                 や<strong>カラーピッカー</strong>からも入力可能です。<br>
                 不正な値の場合は<span class="warning">文字色が赤</span>になり、メモが表示されます。
               </p>
-              <p class="note small">
-                ❗ エクスポート時に未記入もしくは不正な値だった場合にはデフォルト値が採用されます。<br>
+              <p class="note small caution">
+                エクスポート時に未記入もしくは不正な値だった場合にはデフォルト値が採用されます。<br>
                 <code>Cubase</code>向けに作成する場合は、プリセットカラーの使用を推奨します。
                 <a href="#cubase-color" class="jump">カラー設定の注意</a>
               </p>
@@ -236,13 +240,14 @@
           </li>
         </ul>
 
-        <h3 id="sheet-groups">Groups シート</h3><!-- ******************************************************  -->
+        <h3 id="sheet-groups">Groups シート</h3><!-- ==========================================================  -->
         <p>
           <code>Main</code>シートの<code>Group Name</code>列で使用する選択肢を管理します。
-          ここで定義したグループ名が<code>Main</code>シートのプルダウンリストに表示されます。
+          <code>Group List</code>で定義したグループ名が<code>Main</code>シートのプルダウンリストに表示されます。
         </p>
+        <img src="img/group-list.png" alt="group-list">
 
-        <h3 id="sheet-settings">Settings シート</h3><!-- **************************************************  -->
+        <h3 id="sheet-settings">Settings シート</h3><!-- ======================================================  -->
         <p><code>Map Name</code>と<code>Middle C</code>を設定します。</p>
         <img src="img/settings-sheet.png" alt="settings-sheet">
         <ul>
@@ -285,14 +290,14 @@
         <h2>メニュー機能</h2>
         <p>スプレッドシート上部のメニューから実行できる機能の詳細です。</p>
 
-        <h3 id="menu-project">💼 プロジェクト</h3><!--  ******************************************************  -->
+        <h3 id="menu-project">💼 プロジェクト</h3><!--  =======================================================  -->
         <ul>
           <li>
             <strong>💾　プロジェクトを保存...:</strong><br>
             現在のシートの内容を<code>JSON</code>形式のファイルとして
             ローカル（PC）にダウンロードします。<br> バックアップとして機能します。<br>
-            <span class="very-small">
-              ※シートの編集状態をそのまま保存するため、不正な値や未記入の項目があっても保存可能です。
+            <span class="very-small notice">
+              シートの編集状態をそのまま保存するため、不正な値や未記入の項目があっても保存可能です。
             </span>
           </li>
           <li>
@@ -305,7 +310,7 @@
           </li>
         </ul>
 
-        <h3 id="menu-export">📤 エクスポート</h3><!--  *******************************************************  -->
+        <h3 id="menu-export">📤 エクスポート</h3><!--  =======================================================  -->
         <p>
           作成したデータを各<code>DAW</code>用の形式で書き出します。
           メニューから出力形式を選択してください。
@@ -316,29 +321,29 @@
           <li><code>.expressionmap</code>(Cubase)</li>
           <li><code>.keyswitch</code>(Studio One)</li>
         </ul>
+        <h4 class="caution">エクスポート時の注意:</h4><!-------------------------------------------------------------------------->
         <div id="export-err" class="alert end-space">
-          <div><strong>❗ エクスポート時の注意:</strong></div>
           <div class="float-image">
             <img src="img/export-err.png" alt="export-err" class="zoomable" width="350">
           </div>
+          <h5 class="small">MIDIノートのエラー:</h5>
           <p class="small">
-            <strong>MIDIノートのエラー:</strong><br>
             不正な値や範囲外の値が存在する場合、エクスポートは実行できません。
             ダイアログにエラー件数が表示されますので、<code>Main</code>シートを修正してから再度実行してください。
           </p>
+          <h5 class="small">その他の項目の補正:</h5>
+          <p class="small">
+            MIDIノート以外の項目に不正な値や未記入がある場合、
+            デフォルト値に自動補正されて出力されますのでご注意ください。
+          </p>
           <div class="clear"></div>
         </div>
-        <p>
-          <strong>その他の項目の補正:</strong><br>
-          MIDIノート以外の項目に不正な値や未記入がある場合、
-          デフォルト値に自動補正されて出力されますのでご注意ください。
-        </p>
-        <h4>共通設定:</h4>
+        <h4>共通設定:</h4><!--------------------------------------------------------------------------------------->
         <p id="octave-offset"><strong>オクターブオフセット:</strong><br>
           エクスポート時に表示されるダイアログで、<code>オクターブオフセット</code>
           （初期値: 0）を設定できます。
         </p>
-        <div class="quote-style end-space">
+        <div class="quote end-space">
           <div class="float-image">
             <img src="img/octave-offset.png" alt="octave-offset" class="zoomable" width="350">
           </div>
@@ -370,7 +375,7 @@
           </li>
         </ul>
         <div class="alert">
-          <strong>❗ カラー設定の注意（プリセットカラー推奨）:</strong><br>
+          <strong class="caution">カラー設定の注意（プリセットカラー推奨）:</strong><br>
           <div id="cubase-color" class="small">
             <p class="indent">
               <code>Cubase</code>の<code>Expression Map</code>では、色はカラーコードではなく
@@ -410,7 +415,7 @@
           </li>
         </ul>
 
-        <h3 id="menu-tools">🛠️ Appツール</h3><!--  ***********************************************************  -->
+        <h3 id="menu-tools">🛠️ Appツール</h3><!--  ===========================================================  -->
         <p>入力作業を効率化するための補助機能です。</p>
         <ul>
           <li>
@@ -433,16 +438,17 @@
                 選択開始セル（太い青枠）のMIDIノートを基準に、選択した範囲に対して
                 半音階の連番MIDIノートでセルを埋めます。<br>
                 MIDIノート用のオートフィルのような機能です。<br>
-                <p class="alert note">
-                  ※選択開始セルから下に向かって選択していても、上に向かって選択していても
-                  基準セルは選択開始セルとなります。<br>
-                  よって、基準セルがヘッダ行だった場合や、基準セルに有効なMIDIノートが入力されていなかった場合、
-                  生成されるMIDIノートが<code>0～127</code>のMIDIノートナンバーの範囲を超える場合
-                  などはエラーとなり処理が実行されません。
-                </p>
+                <img src="img/fill-midi-note.png" alt="fill-midi-note" >
+                <div class="alert end-space small">
+                  <span class="notice">以下の場合はエラーとなり処理が実行されません。</span>
+                  <ul>
+                    <li>選択開始セルがヘッダ行だった場合</li>
+                    <li>選択開始セルに有効なMIDIノートが入力されていなかった場合</li>
+                    <li>生成されるMIDIノートが<code>0～127</code>のMIDIノートナンバーの範囲を超える場合</li>
+                  </ul>
+                </div>
               </li>
             </ul>
-            <img src="img/fill-midi-note.png" alt="fill-midi-note">
           </li>
           <li><strong>Settingsシート</strong><!-------------------------------------------------------------------->
             <ul>
@@ -459,7 +465,7 @@
           </li>
         </ul>
 
-        <h3 id="menu-help">❓ Appヘルプ</h3><!--  *************************************************************  -->
+        <h3 id="menu-help">❓ Appヘルプ</h3><!--  =============================================================  -->
         <p>ヘルプやトラブルシューティングに関する機能です。</p>
         <ul>
           <li>
@@ -512,9 +518,9 @@
           表示されるサイドバーでは、
           色やグループの管理・適用を直感的に行えます。</p>
 
-        <h3 id="sidebar-color">🎨 カラー選択</h3><!--  *******************************************************  -->
+        <h3 id="sidebar-color">🎨 カラー選択</h3><!--  ========================================================  -->
         <p>プリセットカラーやカラーピッカーから色を選択できます。</p>
-        <div class="tall-crop">
+        <div class="tall-crop no-border">
           <img src="img/sidebar.png" alt="sidebar" class="zoomable">
         </div>
         <ul>
@@ -526,14 +532,14 @@
           <li>
             <strong>カラーピッカー:</strong><br>
             自由に色を設定できます。クリップボードにコピーすることもできます。<br>
-            <span class="very-small">
-              ※<code>Cubase</code>では正しく反映されず、デフォルトの色に置き換わる場合があります。
+            <span class="very-small notice">
+              <code>Cubase</code>では正しく反映されず、デフォルトの色に置き換わる場合があります。
             </span>
           </li>
         </ul>
         <p>選択した色は、下部のアクションボタンを使ってシートに適用します。</p>
 
-        <h3 id="sidebar-group">🏷️ グループ選択</h3><!--  ******************************************************  -->
+        <h3 id="sidebar-group">🏷️ グループ選択</h3><!--  =====================================================  -->
         <p>
           <code>Groups</code>シートで定義されたグループをプルダウンから選択します。
           <code>Groups</code>シートを編集した場合は、更新ボタン「<span class="bright-blue">↻</span>
@@ -541,13 +547,13 @@
         </p>
         <img src="img/group-select.png" alt="group-select">
 
-        <h3 id="sidebar-action">✔️ アクション (Mainシート)</h3><!--  ******************************************  -->
+        <h3 id="sidebar-action">✔️ アクション (Mainシート)</h3><!--  ==========================================  -->
         選択中の色やグループを<code>Main</code>シートに適用するボタン群です。<br>
-        <div class="quote-style end-space">
+        <div class="quote end-space">
           <div class="float-image">
             <img src="img/selected-range.png" alt="selected-range" class="zoomable" width="400">
           </div>
-          <p class="indent note small">💡 Tips<br>
+          <p class="indent note small hint">Tips<br>
             選択範囲は連続していなくても問題ありません。
             また、行全体やターゲットでは無い列を選択してもターゲットの列に実行されます。
           </p>
@@ -600,12 +606,12 @@
             抽出したデータは、<code>Main</code>シートへの貼り付けに適したヘッダ行無しの表形式で表示されます。<br>
             そのまま表の右下にある<sup>※</sup>「表をコピー」ボタンを押してコピーするか
             <code>TSV</code>や<code>CSV</code>などの形式にすることもできます。
-            <span class="very-small">(※Googleスプレッドシートにエクスポートのボタンではありません)</span>
+            <span class="very-small notice">(Googleスプレッドシートにエクスポートのボタンではありません)</span>
           </li>
         </ol>
-        <div class="alert">
-          <strong>❗ AI生成に関する注意:</strong><br>
-          <p class="indent small">
+        <div class="alert small">
+          <strong class="caution">AI生成に関する注意:</strong><br>
+          <p class="indent">
             <code>Gemini</code>は非常に高い精度で文字を認識しますが、
             誤読やハルシネーションが発生する可能性があります。<br>
             抽出されたデータは元のマニュアルと照らし合わせて確認を行ってください。
@@ -625,16 +631,16 @@
       <section id="tips"><!--  *******************************************************************************  -->
         <h2>Tips</h2>
         <div class="accordion">
-          <strong class="accordion-header">
+          <h3 class="accordion-header"><!--  =================================================================  -->
             基本的な作業フロー ( <span class="bright-blue">クリックして開閉</span> )
-          </strong>
+          </h3>
           <div class="accordion-content">
             基本的な作業フローは以下のようになっています。<br>
             <span class="indent very-small">※この手順でなくても問題はありません。</span><br><br>
             <ol>
               <li>
                 <strong>準備 :</strong><br>
-                  先ずは入力すべき音源のキースイッチ情報を用意します。<br>
+                  まずは入力すべき音源のキースイッチ情報を用意します。<br>
                   マニュアルなどからテキストや画像、PDFなど、あるいは音源のスクリーンショットなど
                   のいずれかで、キースイッチの情報が分かるのもを用意します。<br>
                   <a href="#gemini-gem" class="jump">キースイッチ抽出 Gem</a>を使うと効率的です。<br>
@@ -644,14 +650,14 @@
                 <code>Main</code>シートの<code>Articulation Name</code>列、<code>MIDI Note</code>列
                 にキースイッチ情報を入力します。<br>
                 シートへの入力は手動入力の外にコピー＆ペーストでも入力できます。<br>
-                <code>Gemini</code>でコピーしたデータを貼り付ける場合は入力開始セル( 通常はA2セル )
-                に貼り付けるだけで自動的にセルに分割されてデータが挿入されます。<br>
-                <div class="quote-style end-space">
+                <code>キースイッチ抽出 Gem</code>の「表のコピー」でコピーしたデータを貼り付ける場合は入力開始セル
+                ( 通常はA2セル )に貼り付けるだけで自動的にセルに分割されてデータが挿入されます。<br>
+                <div class="quote end-space">
                   <div class="float-image">
                     <img src="img/split-text.png" alt="split-text" class="zoomable" width="300">
                   </div>
-                  <p class="note small">
-                    💡 「表のコピー」からの貼り付けでは無く<code>CSV</code>データなどを貼り付けた場合には
+                  <p class="note small hint">
+                    「表のコピー」からの貼り付けでは無く<code>CSV</code>データなどを貼り付けた場合には
                     自動的にセルに分割されない場合があります。<br>
                     その場合は貼り付けを行った際に出現するアイコンのプルダウンメニューから
                     「テキストを列に分割」を選択するとうまくいく場合があります。
@@ -698,9 +704,10 @@
             </ol>
           </div>
         </div><hr>
-        <div id="middle-C" class="quote-style">
-          <strong>💡 Middle C =「中央のド」とは：</strong>
-          <p class="indent">MIDIノートの基準となる音程の事です。</p>
+
+        <h3 class="icon-hint">Middle C =「中央のド」とは：</h3><!--  ========================================================  -->
+        <div id="middle-C" class="quote">
+          <p>MIDIノートの基準となる音程の事です。</p>
           <ul>
             <li><strong><code>Middle C</code>のMIDIノートナンバー:</strong><br>
               MIDIノートは<code>0～127</code>の計128個の値を取ります。<br>
@@ -721,7 +728,7 @@
           </ul>
         </div>
         <p>
-          <strong>本アプリでの設定：</strong><br>
+          <h4>本アプリでの設定：</h4>
           <code>Settings</code>シートの<code>Middle C</code>で、使用する
           <strong>音源側の仕様に合わせて</strong><code>3, 4, 5</code>から値を選択してください。<br>
           もし<code>Main</code>シートで「範囲外」の判定が出た場合は、この
@@ -732,11 +739,11 @@
           音源側と<code>DAW</code>側の採用している<code>Middle C</code>が合わない場合は
           エクスポート時に<a href="#octave-offset" class="jump">オクターブオフセット</a>
           を設定することによって対応してください。<br>
-          <span class="very-small">
-            ※<code>DAW</code>側でこの差分を吸収する設定ができる機能が搭載されている物もあります。
+          <span class="very-small notice">
+            <code>DAW</code>側でこの差分を吸収する設定ができる機能が搭載されている物もあります。
           </span>
         </p>
-        <h3>推奨ブラウザ・環境</h3><!-- ************************************************************************  -->
+        <h3>推奨ブラウザ・環境</h3><!-- ========================================================================  -->
         <p>
           PC版のブラウザであれば特に問題ないと思われます。<br>ただし、
           <strong>スマートフォンやタブレットのアプリ版スプレッドシートでは GAS（スクリプト）
@@ -746,7 +753,7 @@
       <!-- #endregion -->
 
       <!-- #region Changelog -->
-      <section id="changelog"><!--  ***************************************************************************  -->
+      <section id="changelog"><!--  **************************************************************************  -->
         <h2>更新履歴</h2>
         <div class="accordion">
           <strong class="accordion-header">
@@ -760,7 +767,7 @@
       <!-- #endregion -->
 
       <!-- #region Legal -->
-      <section id="legal"><!--  *******************************************************************************  -->
+      <section id="legal"><!--  ******************************************************************************  -->
         <h2>免責事項・ライセンス</h2>
         <h3>免責事項</h3>
         <p>
@@ -776,7 +783,7 @@
     </main>
   </div>
 
-  <footer><!--  ***********************************************************************************************  -->
+  <footer><!--  **********************************************************************************************  -->
     <div id="sns-links" style="margin-bottom: 15px;"></div>
     <p>&copy; 2026 Second Illness</p>
   </footer>

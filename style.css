@@ -36,20 +36,35 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1rem;
-  margin-top: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 1rem;
   color: #444;
   scroll-margin-top: 1rem;
 }
 
+h4 {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h5 {
+  font-size: 0.975rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
 p, ul, ol, dl {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   margin-top: 0;
 }
 
-li, dt, dd{
+li, dt, dd {
   margin-bottom: 0.8rem;
+}
+
+.small li {
+  margin-bottom: 0.5rem;
 }
 
 code {
@@ -152,19 +167,8 @@ nav ul ul a {
 /* ==========================================================================
 4. Components (コンポーネント)
 ========================================================================== */
-/* --- Alerts & Quotes --- */
-.image-placeholder {
-  background: #eee;
-  border: 2px dashed #ccc;
-  color: #777;
-  padding: 1rem;
-  text-align: center;
-  margin: 0.5rem 0 1rem 0;
-  font-size: 0.9rem;
-}
-
 .alert,
-.quote-style {
+.quote {
   padding: 1.25rem 1.25rem 0.5rem;
   border-radius: 4px;
   margin-top: 1rem;
@@ -177,7 +181,7 @@ nav ul ul a {
   color: #856404;
 }
 
-.quote-style {
+.quote {
   background: #f0f4f9;
   border-left: 5px solid #d0d7de;
 }
@@ -261,13 +265,21 @@ img {
 .zoom-container {
   display: block;
 }
+
 .zoom-container img {
   margin: 0;
 }
 
+.zoom-container::after {
+  content: "🔍";
+}
+
+.tall-crop::after {
+  content: "⏬";
+}
+
 .zoom-container::after,
 .tall-crop::after {
-  content: "🔍";
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -407,12 +419,12 @@ img {
 5. Utilities (ユーティリティ)
 ========================================================================== */
 .indent {
-  margin-left: 2rem;
+  margin-left: 2em;
 }
 
 .note {
   padding-left: 2em;
-  text-indent: -1em;;
+  text-indent: -1.2em;;
 }
 
 .spacer {
@@ -446,6 +458,35 @@ img {
 
 .warning {
   color: red;
+}
+
+.no-border {
+  border: 0;
+}
+
+/* Icon Classes */
+.hint::before,
+.caution::before,
+.notice::before {
+  font-family:
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji",
+  "Apple Color Emoji",
+  sans-serif;
+}
+
+.hint::before {
+  content: "\1F4A1"; /* 💡 */
+}
+
+.caution::before {
+  margin-right: 0.2em;
+  content: "\2757"; /* ❗ */
+}
+
+.notice::before {
+  content: "\203B"; /* ※ */
 }
 
 .jump::before {
