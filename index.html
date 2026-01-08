@@ -356,11 +356,12 @@
             <img src="img/octave-offset.png" alt="octave-offset" class="zoomable" width="350">
           </div>
           <ul class="small">
-            <li>音源側の<code>Middle C</code>と<code>DAW</code>側の
-              <code>Middle C</code>の設定が異なる場合に、この値で補正します。
+            <li>
+              基本的に音源側の<code>Middle C</code>の定義と<code>Settings</code>シートの
+              <code>Middle C</code>の設定が合っていればこの値は初期値から変更する必要はありません。
             </li>
             <li>
-              <code>DAW</code>上で意図したキースイッチが反応しない場合は、
+              万が一<code>DAW</code>上で意図したキースイッチが反応しない場合は、
               この値を<code>±</code>して再度エクスポート・読み込みを試してください。
             </li>
             <li>
@@ -744,8 +745,10 @@
           設定を変更して値が正常範囲（黒色）になるか確認してください。<br>
         </p>
         <p>
-          音源側と<code>DAW</code>側の採用している<code>Middle C</code>が合わない場合は
-          エクスポート時に<a href="#octave-offset" class="jump">オクターブオフセット</a>
+          基本的には音源側の<code>Middle C</code>の設定と合っていれば、DAWの内部的にはMIDIノートナンバーで
+          管理されるのでオクターブのズレは発生しません。<br>
+          万が一オクターブのズレが発生した場合にはエクスポート時に
+          <a href="#octave-offset" class="jump">オクターブオフセット</a>
           を設定することによって対応してください。<br>
           <span class="very-small notice">
             <code>DAW</code>側でこの差分を吸収する設定ができる機能が搭載されている物もあります。
