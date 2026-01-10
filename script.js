@@ -239,4 +239,31 @@ if (navToggle) {
       navToggle.checked = false;
     });
   });
+
+  // スワイプ操作でメニューを開閉 (左:閉じる / 右:開く)
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    // 垂直スクロールとの誤判定を防ぐため、水平移動量が垂直移動量より大きい場合のみ判定
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 50 && !navToggle.checked) {
+        // 右スワイプ (50px以上) -> 開く
+        navToggle.checked = true;
+      } else if (diffX < -50 && navToggle.checked) {
+        // 左スワイプ (50px以上) -> 閉じる
+        navToggle.checked = false;
+      }
+    }
+  }, { passive: true });
 }
