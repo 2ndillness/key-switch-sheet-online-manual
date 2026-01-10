@@ -164,6 +164,12 @@ nav ul ul a {
   color: #666;
 }
 
+/* スマホ用メニュー切り替えボタン（PCでは非表示） */
+.nav-toggle,
+.nav-toggle-label {
+  display: none;
+}
+
 /* ==========================================================================
 4. Components (コンポーネント)
 ========================================================================== */
@@ -519,5 +525,34 @@ img {
 
   main {
     padding: 1rem;
+  }
+
+  /* スマホ用ナビゲーション設定 */
+  .nav-toggle-label {
+    display: block;
+    cursor: pointer;
+    padding: 0.8rem;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 1rem;
+  }
+  .nav-toggle-label:hover {
+    background-color: #dee2e6;
+  }
+
+  nav ul {
+    display: none; /* デフォルトで非表示 */
+  }
+
+  #nav-toggle:checked ~ ul {
+    display: block; /* チェックされたら表示 */
+  }
+
+  nav a {
+    padding: 0.5rem 0; /* タップしやすいように余白を広げる */
+    border-bottom: 1px solid #eee;
   }
 }
